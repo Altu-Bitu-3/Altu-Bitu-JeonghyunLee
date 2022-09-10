@@ -4,30 +4,37 @@
 
 using namespace std;
 
+/*
+변수가 2개일 때는 구조체 선언 대신 pair 사용이 간편함
+
 struct point {
 	int x, y;
 };
 
-bool cmp(const point& a, const point& b) {
-	if (a.y == b.y) {
-		return a.x < b.x;
+*/
+
+typedef pair<int, int> p;
+
+bool cmp(const p & a, const p & b) {
+	if (a.second != b.second) {
+		return a.second < b.second;
 	}
-	else return a.y < b.y;
+	else return a.first < b.first;
 }
 
 int main() {
 	int n;
 	cin >> n;
 
-	vector<point> arr(n);
+	vector<p> arr(n);
 
 	for (int i = 0; i < n; i++) {
-		cin >> arr[i].x >> arr[i].y;
+		cin >> arr[i].first >> arr[i].second;
 	}
 
 	sort(arr.begin(), arr.end(), cmp);
 
 	for (int i = 0; i < n; i++) {
-		cout << arr[i].x << " " << arr[i].y << "\n";
+		cout << arr[i].first << " " << arr[i].second << "\n";
 	}
 }
