@@ -8,14 +8,10 @@ vector<int> arr(21);
 
 void solution(string str) {
 	if (str == "all") {
-		for (int i = 1; i <= 20; i++) {
-			arr[i] = 1;
-		}
+		fill(arr.begin(), arr.end(), 1);
 	}
 	else if (str == "empty") {
-		for (int i = 1; i <= 20; i++) {
-			arr[i] = 0;
-		}
+		fill(arr.begin(), arr.end(), 0);
 	}
 	else {
 		int num;
